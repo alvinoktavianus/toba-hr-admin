@@ -6,7 +6,40 @@
 
         <div class="card card-block">
 
-            <h3>List all employee</h3>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>Full Name</th>
+                            <th>Address</th>
+                            <th>Personal Leave Balance</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+<?php foreach( $employees as $employee ): ?>
+
+    <tr>
+        <td> <?php echo $employee->EmployeeID; ?> </td>
+        <td> <?php echo $employee->FullName ?> </td>
+        <td> <?php echo $employee->Address ?> </td>
+        <td> <?php echo $employee->PersonalLeaveBalance ?> </td>
+        <td>
+            <?php if ( $employee->IsActive == 'Y' ): ?>
+                <a href="" class="btn btn-danger">Deactived</a>
+            <?php else: ?>
+                <a href="" class="btn btn-success">Deactived</a>
+            <?php endif; ?>
+        </td>
+    </tr>
+
+<?php endforeach; ?>
+
+                    </tbody>
+                </table>
+            </div>
 
         </div>
     </section>

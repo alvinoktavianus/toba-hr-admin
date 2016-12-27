@@ -3,10 +3,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class ManageEmployee extends CI_Controller {
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('employee');
+    }
+
     public function index()
     {
         if ( $this->session->has_userdata('user_session') ) {
 
+            $data['employees'] = $this->employee->get_all_employee();
             $data['page_title'] = "Manage Employee";
             $data['page'] = 'manageemployee';
             $this->load->view('include/mainloggedin', $data);
