@@ -48,11 +48,11 @@
             <li class="<?php if ($page == 'home') { echo "active"; } ?>">
                 <a href="<?php echo base_url(); ?>"> <i class="fa fa-home"></i> Dashboard </a>
             </li>
-            <li class="<?php if ($page == 'confirmpayment' || $page == 'transactionhistory' || $page == 'confirminvoice' || $page == 'invoicedetail') { echo "active open"; } ?>">
+            <li class="<?php if ($page == 'manageemployee' || $page == 'addemployee') { echo "active open"; } ?>">
                 <a href="#"> <i class="fa fa-credit-card" aria-hidden="true"></i> Manage Employee <i class="fa arrow"></i> </a>
                 <ul>
-                    <li class="<?php if ($page == 'confirmpayment' || $page == 'confirminvoice') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>manageemployee">View Employee</a> </li>
-                    <li class="<?php if ($page == 'transactionhistory' || $page == 'invoicedetail') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>manageemployee/add">Add New Employee</a> </li>
+                    <li class="<?php if ($page == 'manageemployee') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>manageemployee">View Employee</a> </li>
+                    <li class="<?php if ($page == 'addemployee') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>manageemployee/add">Add New Employee</a> </li>
                 </ul>
             </li>
         </ul>
@@ -71,6 +71,10 @@
                         }
                         case 'manageemployee': {
                             $this->load->view('layouts/manageemployee');
+                            break;
+                        }
+                        case 'addemployee': {
+                            $this->load->view('layouts/addemployee');
                             break;
                         }
                         // case 'updatewebsite': {
