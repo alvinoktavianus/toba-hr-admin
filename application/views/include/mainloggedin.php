@@ -65,6 +65,7 @@
             <li class="<?php if ($page == 'department' || $page == 'jobposition') { echo "active open"; } ?>">
                 <a href="#"> <i class="fa fa-credit-card" aria-hidden="true"></i> Master Data <i class="fa arrow"></i> </a>
                 <ul>
+                    <li class="<?php if ($page == 'department') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>department">Department</a> </li>
                     <li class="<?php if ($page == 'jobposition') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>jobposition">Job Position</a> </li>
                 </ul>
             </li>
