@@ -55,6 +55,13 @@
                     <li class="<?php if ($page == 'addemployee') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>manageemployee/add">Add New Employee</a> </li>
                 </ul>
             </li>
+            <li class="<?php if ($page == 'department') { echo "active open"; } ?>">
+                <a href="#"> <i class="fa fa-credit-card" aria-hidden="true"></i> Master Data <i class="fa arrow"></i> </a>
+                <ul>
+                    <li class="<?php if ($page == 'department') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>department">Department</a> </li>
+                    <li class="<?php if ($page == 'jobposition') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>jobposition">Job Position</a> </li>
+                </ul>
+            </li>
         </ul>
     </nav>
 </div>
@@ -77,11 +84,11 @@
                             $this->load->view('layouts/addemployee');
                             break;
                         }
-                        // case 'updatewebsite': {
-                        //     $data['page'] = $page;
-                        //     $this->load->view('layouts/superuser/updatewebsite', $data);
-                        //     break;
-                        // }
+                        case 'department': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/department', $data);
+                            break;
+                        }
                         // case 'totalincome': {
                         //     $data['page'] = $page;
                         //     $this->load->view('layouts/superuser/totalincome', $data);

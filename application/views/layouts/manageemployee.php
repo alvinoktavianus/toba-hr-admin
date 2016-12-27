@@ -28,9 +28,9 @@
         <td> <?php echo $employee->PersonalLeaveBalance ?> </td>
         <td>
             <?php if ( $employee->IsActive == 'Y' ): ?>
-                <a href="" class="btn btn-danger">Deactived</a>
+                <a href="" class="btn btn-danger">Deactivated</a>
             <?php else: ?>
-                <a href="" class="btn btn-success">Deactived</a>
+                <a href="" class="btn btn-success">Activaed</a>
             <?php endif; ?>
         </td>
     </tr>

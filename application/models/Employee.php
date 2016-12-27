@@ -16,6 +16,7 @@ class Employee extends CI_Model {
 
     public function get_all_employee()
     {
+        $this->db->where('IsEmployee', 'Y');
         return $this->db->get('MsEmployee')->result();
     }
 
