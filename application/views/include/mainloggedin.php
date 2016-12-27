@@ -69,6 +69,10 @@
                             $this->load->view('layouts/home');
                             break;
                         }
+                        case 'manageemployee': {
+                            $this->load->view('layouts/manageemployee');
+                            break;
+                        }
                         // case 'updatewebsite': {
                         //     $data['page'] = $page;
                         //     $this->load->view('layouts/superuser/updatewebsite', $data);
