@@ -40,6 +40,10 @@ class ManageEmployee extends CI_Controller {
     {
         if ( $this->session->has_userdata('user_session') ) {
 
+            $idcardno = $this->input->post('idcardno');
+            $birthlocation = $this->input->post('birthlocation');
+            $birthdate = $this->input->post('birthdate');
+            $bloodtype = $this->input->post('bloodtype');
             $fullname = $this->input->post('fullname');
             $email = $this->input->post('email');
             $password = $this->input->post('password');
@@ -49,7 +53,11 @@ class ManageEmployee extends CI_Controller {
             $role = $this->input->post('role');
 
             $data = array(
+                'IdCardNo' => $idcardno,
                 'FullName' => $fullname,
+                'BirthLocation' => $birthlocation,
+                'BirthDate' => $birthdate,
+                'BloodType' => $bloodtype,
                 'Email' => $email,
                 'Password' => $this->bcrypt->hash_password($password),
                 'PhoneNo' => $phoneno,
@@ -57,7 +65,8 @@ class ManageEmployee extends CI_Controller {
                 'PostalCode' => $postalcode,
                 'IsActive' => 'Y',
                 'IsEmployee' => 'Y',
-                'CreatedBy' => 1
+                'CreatedBy' => 1,
+                'Role' => $role,
             );
 
             $this->db->trans_begin();

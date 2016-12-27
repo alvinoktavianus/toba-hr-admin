@@ -15,6 +15,7 @@
                             <th>Address</th>
                             <th>Personal Leave Balance</th>
                             <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,6 +32,11 @@
                 <a href="" class="btn btn-danger">Deactivated</a>
             <?php else: ?>
                 <a href="" class="btn btn-success">Activaed</a>
+            <?php endif; ?>
+        </td>
+        <td>
+            <?php if ( $employee->IsEmployee == 'Y' ): ?>
+                <a href="<?php echo base_url(); ?>/manageemployee/remove?emplid=<?php echo $employee->EmployeeID; ?>" class="btn btn-danger">Remove</a>
             <?php endif; ?>
         </td>
     </tr>
