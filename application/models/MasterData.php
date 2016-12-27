@@ -10,6 +10,7 @@ class MasterData extends CI_Model {
 
     public function insert_new_department($data)
     {
+        $this->db->where('IsActive', 'Y');
         $this->db->insert('MsDepartment', $data);
     }
 

@@ -30,7 +30,8 @@ class Department extends CI_Controller {
             $departmentname = $this->input->post('departmentname');
 
             $data = array(
-                'Description' => $departmentname
+                'Description' => $departmentname,
+                'CreatedBy' => 1,
             );
 
             $this->db->trans_begin();
