@@ -55,6 +55,13 @@
                     <li class="<?php if ($page == 'addemployee') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>manageemployee/add">Add New Employee</a> </li>
                 </ul>
             </li>
+            <li class="<?php if ($page == 'manageschedule' || $page == 'addschedule') { echo "active open"; } ?>">
+                <a href="#"> <i class="fa fa-credit-card" aria-hidden="true"></i> Schedule <i class="fa arrow"></i> </a>
+                <ul>
+                    <li class="<?php if ($page == 'manageschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>schedule">View Schedule</a> </li>
+                    <li class="<?php if ($page == 'addschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>schedule/add">Add New Employee</a> </li>
+                </ul>
+            </li>
             <li class="<?php if ($page == 'department') { echo "active open"; } ?>">
                 <a href="#"> <i class="fa fa-credit-card" aria-hidden="true"></i> Master Data <i class="fa arrow"></i> </a>
                 <ul>
@@ -77,16 +84,16 @@
                             break;
                         }
                         case 'manageemployee': {
-                            $this->load->view('layouts/manageemployee');
+                            $this->load->view('layouts/employee/manageemployee');
                             break;
                         }
                         case 'addemployee': {
-                            $this->load->view('layouts/addemployee');
+                            $this->load->view('layouts/employee/addemployee');
                             break;
                         }
                         case 'department': {
                             $data['page'] = $page;
-                            $this->load->view('layouts/department', $data);
+                            $this->load->view('layouts/department/department', $data);
                             break;
                         }
                         // case 'totalincome': {
