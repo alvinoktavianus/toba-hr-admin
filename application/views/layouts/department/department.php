@@ -74,8 +74,6 @@
                                             <?php else: ?>
                                                 <a href="<?php echo base_url(); ?>department/activate?id=<?php echo $department->DepartmentID; ?>" class="btn btn-success btn-sm">Activate</a>
                                             <?php endif; ?>
-                                            <br>
-                                            <a href="<?php echo base_url(); ?>department/update?id=<?php echo $department->DepartmentID; ?>" class="btn btn-info btn-sm">Update</a>
                                         </td>
                                     </tr>
 
