@@ -31,7 +31,7 @@ class JobPosition extends CI_Controller {
 
             $data = array(
                 'Description' => $jobname,
-                'CreatedBy' => 1,
+                'CreatedBy' => $this->session->userdata('user_session')['employeeid'],
             );
 
             $this->db->trans_begin();

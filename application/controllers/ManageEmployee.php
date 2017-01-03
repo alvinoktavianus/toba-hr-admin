@@ -65,7 +65,7 @@ class ManageEmployee extends CI_Controller {
                 'PostalCode' => $postalcode,
                 'IsActive' => 'Y',
                 'IsEmployee' => 'Y',
-                'CreatedBy' => 1,
+                'CreatedBy' => $this->session->userdata('user_session')['employeeid'],
                 'Role' => $role,
             );
 

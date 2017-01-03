@@ -31,7 +31,7 @@ class Department extends CI_Controller {
 
             $data = array(
                 'Description' => $departmentname,
-                'CreatedBy' => 1,
+                'CreatedBy' => $this->session->userdata('user_session')['employeeid'],
             );
 
             $this->db->trans_begin();
