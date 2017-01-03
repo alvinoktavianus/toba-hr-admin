@@ -38,40 +38,40 @@
 
                 <aside class="sidebar">
 
-<div class="sidebar-container">
-    <div class="sidebar-header">
-        <div class="brand">
-            <div class="logo"> <span class="l l1"></span> <span class="l l2"></span> <span class="l l3"></span> <span class="l l4"></span> <span class="l l5"></span> </div> Toba HRM Admin </div>
-    </div>
-    <nav class="menu">
-        <ul class="nav metismenu" id="sidebar-menu">
-            <li class="<?php if ($page == 'home') { echo "active"; } ?>">
-                <a href="<?php echo base_url(); ?>"> <i class="fa fa-home"></i> Dashboard </a>
-            </li>
-            <li class="<?php if ($page == 'manageemployee' || $page == 'addemployee') { echo "active open"; } ?>">
-                <a href="#"> <i class="fa fa-users" aria-hidden="true"></i> Manage Employee <i class="fa arrow"></i> </a>
-                <ul>
-                    <li class="<?php if ($page == 'manageemployee') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>manageemployee">View Employee</a> </li>
-                    <li class="<?php if ($page == 'addemployee') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>manageemployee/add">Add New Employee</a> </li>
-                </ul>
-            </li>
-            <li class="<?php if ($page == 'manageschedule' || $page == 'addschedule') { echo "active open"; } ?>">
-                <a href="#"> <i class="fa fa-credit-card" aria-hidden="true"></i> Schedule <i class="fa arrow"></i> </a>
-                <ul>
-                    <li class="<?php if ($page == 'manageschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>schedule">View Schedule</a> </li>
-                    <li class="<?php if ($page == 'addschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>schedule/add">Add New Employee</a> </li>
-                </ul>
-            </li>
-            <li class="<?php if ($page == 'department' || $page == 'jobposition') { echo "active open"; } ?>">
-                <a href="#"> <i class="fa fa-credit-card" aria-hidden="true"></i> Master Data <i class="fa arrow"></i> </a>
-                <ul>
-                    <li class="<?php if ($page == 'department') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>department">Department</a> </li>
-                    <li class="<?php if ($page == 'jobposition') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>jobposition">Job Position</a> </li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
-</div>
+                <div class="sidebar-container">
+                    <div class="sidebar-header">
+                        <div class="brand">
+                            <div class="logo"> <span class="l l1"></span> <span class="l l2"></span> <span class="l l3"></span> <span class="l l4"></span> <span class="l l5"></span> </div> Toba HRM Admin </div>
+                    </div>
+                    <nav class="menu">
+                        <ul class="nav metismenu" id="sidebar-menu">
+                            <li class="<?php if ($page == 'home') { echo "active"; } ?>">
+                                <a href="<?php echo base_url(); ?>"> <i class="fa fa-home"></i> Dashboard </a>
+                            </li>
+                            <li class="<?php if ($page == 'manageemployee' || $page == 'addemployee') { echo "active open"; } ?>">
+                                <a href="#"> <i class="fa fa-users" aria-hidden="true"></i> Manage Employee <i class="fa arrow"></i> </a>
+                                <ul>
+                                    <li class="<?php if ($page == 'manageemployee') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>manageemployee">View Employee</a> </li>
+                                    <li class="<?php if ($page == 'addemployee') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>manageemployee/add">Add New Employee</a> </li>
+                                </ul>
+                            </li>
+                            <li class="<?php if ($page == 'manageschedule' || $page == 'addschedule') { echo "active open"; } ?>">
+                                <a href="#"> <i class="fa fa-credit-card" aria-hidden="true"></i> Schedule <i class="fa arrow"></i> </a>
+                                <ul>
+                                    <li class="<?php if ($page == 'manageschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>schedule">View Schedule</a> </li>
+                                    <li class="<?php if ($page == 'addschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>schedule/add">Add New Employee</a> </li>
+                                </ul>
+                            </li>
+                            <li class="<?php if ($page == 'department' || $page == 'jobposition') { echo "active open"; } ?>">
+                                <a href="#"> <i class="fa fa-credit-card" aria-hidden="true"></i> Master Data <i class="fa arrow"></i> </a>
+                                <ul>
+                                    <li class="<?php if ($page == 'department') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>department">Department</a> </li>
+                                    <li class="<?php if ($page == 'jobposition') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>jobposition">Job Position</a> </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
 
                 </aside>
 
@@ -131,6 +131,7 @@
             </div>
         </div>
         <script src="<?php echo base_url(); ?>assets/js/vendor.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/jquery.tabledit.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
     </body>
 

@@ -48,7 +48,25 @@ class Department extends CI_Controller {
 
     public function update()
     {
-        if ( $this->session->has_userdata('user_session') && $this->input->get('id') != null ) {
+        if ( $this->session->has_userdata('user_session') ) {
+
+            header('Content-Type: application/json');
+            $input = filter_input_array(INPUT_POST);
+
+            if ($input['action'] === 'edit') {
+                $data = array(
+                    'Description' => $input['description'],
+                    'UpdatedBy' => $this->session->userdata('user_session')['employeeid'],
+                    'UpdatedAt' => date(DATE_W3C, now('Asia/Jakarta'))
+                );
+
+                $this->db->trans_begin();
+                $this->masterdata->update_department($input['departmentid'], $data);
+                $this->db->trans_commit();
+
+                $this->session->set_flashdata('success', 'Successfull update');
+                redirect('/department','refresh');
+            }
 
         } else {
             $this->load->view('errors/index.html');
