@@ -1,9 +1,10 @@
-$( '#table-department' ).Tabledit({
-    url: '/department/update',
+$('#table-department').Tabledit({
+    url: '/toba-hr-admin/department/update',
+    editButton: false,
     deleteButton: false,
-    restoreButton: false,
+    hideIdentifier: false,
     columns: {
-        identifier: [1, 'departmentid'],
-        editable: [2, 'description']
-    }    
+        identifier: [0, 'departmentid'],
+        editable: [[1, 'description']]
+    }
 });

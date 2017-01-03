@@ -20,6 +20,12 @@ class Employee extends CI_Model {
         return $this->db->get('MsEmployee')->result();
     }
 
+    public function update_employee($id, $object)
+    {
+        $this->db->where('EmployeeID', $id);
+        $this->db->update('MsEmployee', $object);
+    }
+
 }
 
 /* End of file Employee.php */

@@ -133,6 +133,7 @@
         <script src="<?php echo base_url(); ?>assets/js/vendor.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/jquery.tabledit.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/custom.js"></script>
     </body>
 
 </html>
