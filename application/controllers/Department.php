@@ -42,7 +42,56 @@ class Department extends CI_Controller {
             redirect('/department','refresh');
 
         } else {
-            redirect('/','refresh');
+            $this->load->view('errors/index.html');
+        }
+    }
+
+    public function update()
+    {
+        if ( $this->session->has_userdata('user_session') && $this->input->get('id') != null ) {
+
+        } else {
+            $this->load->view('errors/index.html');
+        }
+    }
+
+    public function deactivate()
+    {
+        if ( $this->session->has_userdata('user_session') && $this->input->get('id') != null ) {
+            $data = array(
+                'IsActive' => 'N',
+                'UpdatedBy' => $this->session->userdata('user_session')['employeeid'],
+                'UpdatedAt' => date(DATE_W3C, now('Asia/Jakarta'))
+            );
+
+            $this->db->trans_begin();
+            $this->masterdata->update_department($this->input->get('id'), $data);
+            $this->db->trans_commit();
+
+            $this->session->set_flashdata('success', 'Successfull deactivate');
+            redirect('/department','refresh');
+        } else {
+            $this->load->view('errors/index.html');
+        }
+    }
+
+    public function activate()
+    {
+        if ( $this->session->has_userdata('user_session') && $this->input->get('id') != null ) {
+            $data = array(
+                'IsActive' => 'Y',
+                'UpdatedBy' => $this->session->userdata('user_session')['employeeid'],
+                'UpdatedAt' => date(DATE_W3C, now('Asia/Jakarta'))
+            );
+
+            $this->db->trans_begin();
+            $this->masterdata->update_department($this->input->get('id'), $data);
+            $this->db->trans_commit();
+
+            $this->session->set_flashdata('success', 'Successfull activate');
+            redirect('/department','refresh');
+        } else {
+            $this->load->view('errors/index.html');
         }
     }
 

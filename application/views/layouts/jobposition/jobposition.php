@@ -69,11 +69,13 @@
                                             <td> <?php echo $jobposition->JobPositionID; ?> </td>
                                             <td> <?php echo $jobposition->Description ?> </td>
                                             <td>
-                                            <?php if ( $jobposition->IsActive == 'Y' ): ?>
-                                                <a href="" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you?')">Deactivated</a>
-                                            <?php else: ?>
-                                                <a href="" class="btn btn-success btn-sm">Activaed</a>
-                                            <?php endif; ?>
+                                                <?php if ( $jobposition->IsActive == 'Y' ): ?>
+                                                    <a href="<?php echo base_url(); ?>jobposition/deactivate?id=<?php echo $jobposition->JobPositionID; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you?')">Deactivate</a>
+                                                <?php else: ?>
+                                                    <a href="<?php echo base_url(); ?>jobposition/activate?id=<?php echo $jobposition->JobPositionID; ?>" class="btn btn-success btn-sm">Activate</a>
+                                                <?php endif; ?>
+                                                <br>
+                                                <a href="<?php echo base_url(); ?>jobposition/update?id=<?php echo $jobposition->JobPositionID; ?>" class="btn btn-info btn-sm">Update</a>
                                             </td>
                                         </tr>
 

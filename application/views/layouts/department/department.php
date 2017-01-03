@@ -70,10 +70,12 @@
                                         <td> <?php echo $department->Description ?> </td>
                                         <td>
                                             <?php if ( $department->IsActive == 'Y' ): ?>
-                                                <a href="" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you?')">Deactivated</a>
+                                                <a href="<?php echo base_url(); ?>department/deactivate?id=<?php echo $department->DepartmentID; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you?')">Deactivate</a>
                                             <?php else: ?>
-                                                <a href="" class="btn btn-success btn-sm">Activaed</a>
+                                                <a href="<?php echo base_url(); ?>department/activate?id=<?php echo $department->DepartmentID; ?>" class="btn btn-success btn-sm">Activate</a>
                                             <?php endif; ?>
+                                            <br>
+                                            <a href="<?php echo base_url(); ?>department/update?id=<?php echo $department->DepartmentID; ?>" class="btn btn-info btn-sm">Update</a>
                                         </td>
                                     </tr>
 

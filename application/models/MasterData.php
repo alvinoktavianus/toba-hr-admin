@@ -25,6 +25,18 @@ class MasterData extends CI_Model {
         $this->db->insert('MsJobPosition', $data);
     }
 
+    public function update_department($id, $data)
+    {
+        $this->db->where('DepartmentID', $id);
+        $this->db->update('MsDepartment', $data);
+    }
+
+    public function update_jobposition($id, $data)
+    {
+        $this->db->where('JobPositionID', $id);
+        $this->db->update('MsJobPosition', $data);
+    }
+
 }
 
 /* End of file MasterData.php */
