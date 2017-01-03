@@ -7,15 +7,22 @@
         <div class="card card-block">
 
             <div class="row">
-                <div class="col-md-6">
-
+                
+                <div class="col-md-8">
                     <?php if ($this->session->flashdata('success')): ?>
                         <div class="alert alert-success" role="alert">
                             <strong><?php echo $this->session->flashdata('success'); ?></strong>
                         </div>
-                    <?php endif; ?>
+                    <?php endif; ?>                    
+                </div>
 
-                    <?php echo form_open(base_url().'department/add', ''); ?>
+            </div>
+
+            <div class="row">
+
+                <?php echo form_open(base_url().'department/add', ''); ?>
+
+                    <div class="col-md-8">
 
                         <div class="form-group row">
                             <?php echo form_label('Department Name', 'departmentname', array( 'class' => 'col-sm-4 form-control-label' )); ?>
@@ -32,45 +39,52 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <?php echo form_submit('save', 'Add Department', array( 'class' => 'btn btn-block btn-success' )); ?>
-                        </div>
+                    </div>
 
-                    <?php echo form_close(); ?>
+                    <div class="col-md-4">
+                        <?php echo form_submit('save', 'Add Department', array( 'class' => 'btn btn-block btn-success' )); ?>
+                    </div>
 
+                <?php echo form_close(); ?>
+
+            </div>
+
+            <?php if (count($departments) > 0): ?>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-sm">
+                                <thead class="thead-inverse">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Department Name</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                <?php foreach( $departments as $department ): ?>
+
+                                    <tr>
+                                        <td> <?php echo $department->DepartmentID; ?> </td>
+                                        <td> <?php echo $department->Description ?> </td>
+                                        <td>
+                                            <?php if ( $department->IsActive == 'Y' ): ?>
+                                                <a href="" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you?')">Deactivated</a>
+                                            <?php else: ?>
+                                                <a href="" class="btn btn-success btn-sm">Activaed</a>
+                                            <?php endif; ?>
+                                        </td>
+                                    </tr>
+
+                                <?php endforeach; ?>
+
+                                </tbody>
+                            </table>
+                        </div>                        
+                    </div>
                 </div>
-            </div>
-
-            <div class="table-responsive">
-                <table class="table table-striped table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Department Name</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-<?php foreach( $departments as $department ): ?>
-
-    <tr>
-        <td> <?php echo $department->DepartmentID; ?> </td>
-        <td> <?php echo $department->Description ?> </td>
-        <td>
-            <?php if ( $department->IsActive == 'Y' ): ?>
-                <a href="" class="btn btn-danger">Deactivated</a>
-            <?php else: ?>
-                <a href="" class="btn btn-success">Activaed</a>
             <?php endif; ?>
-        </td>
-    </tr>
-
-<?php endforeach; ?>
-
-                    </tbody>
-                </table>
-            </div>
 
         </div>
     </section>

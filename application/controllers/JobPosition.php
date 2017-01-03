@@ -30,6 +30,7 @@ class JobPosition extends CI_Controller {
             $jobname = $this->input->post('jobname');
 
             $data = array(
+                'IsActive' => 'Y',
                 'Description' => $jobname,
                 'CreatedBy' => $this->session->userdata('user_session')['employeeid'],
             );
