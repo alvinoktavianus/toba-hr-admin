@@ -1,5 +1,5 @@
 $('#table-department').Tabledit({
-    url: '/toba-hr-admin/department/update',
+    url: '/department/update',
     editButton: false,
     deleteButton: false,
     hideIdentifier: false,
