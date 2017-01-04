@@ -62,11 +62,12 @@
                                     <li class="<?php if ($page == 'addschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>schedule/add">Add New Employee</a> </li>
                                 </ul>
                             </li>
-                            <li class="<?php if ($page == 'department' || $page == 'jobposition') { echo "active open"; } ?>">
+                            <li class="<?php if ($page == 'department' || $page == 'jobposition' || $page == 'holiday') { echo "active open"; } ?>">
                                 <a href="#"> <i class="fa fa-credit-card" aria-hidden="true"></i> Master Data <i class="fa arrow"></i> </a>
                                 <ul>
                                     <li class="<?php if ($page == 'department') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>department">Department</a> </li>
                                     <li class="<?php if ($page == 'jobposition') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>jobposition">Job Position</a> </li>
+                                    <li class="<?php if ($page == 'holiday') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>holiday">Holiday</a> </li>
                                 </ul>
                             </li>
                         </ul>
@@ -99,6 +100,11 @@
                         case 'jobposition': {
                             $data['page'] = $page;
                             $this->load->view('layouts/jobposition/jobposition', $data);
+                            break;
+                        }
+                        case 'holiday': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/holiday/holiday', $data);
                             break;
                         }
                         // case 'totalincome': {
