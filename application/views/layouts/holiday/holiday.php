@@ -1,6 +1,6 @@
 <article class="content responsive-tables-page">
     <div class="title-block">
-        <h1 class="title">Job Position</h1>
+        <h1 class="title">Holiday</h1>
     </div>
     <section class="section">
 
@@ -94,7 +94,7 @@
                     </div>
 
                     <div class="col-md-4">
-                        <?php echo form_submit('save', 'Add Job Position', array( 'class' => 'btn btn-block btn-success' )); ?>
+                        <?php echo form_submit('save', 'Add', array( 'class' => 'btn btn-block btn-success' )); ?>
                     </div>
 
                 <?php echo form_close(); ?>

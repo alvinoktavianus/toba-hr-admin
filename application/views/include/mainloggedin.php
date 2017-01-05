@@ -55,11 +55,10 @@
                                     <li class="<?php if ($page == 'addemployee') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>manageemployee/add">Add New Employee</a> </li>
                                 </ul>
                             </li>
-                            <li class="<?php if ($page == 'manageschedule' || $page == 'addschedule') { echo "active open"; } ?>">
+                            <li class="<?php if ($page == 'holidayschedule' || $page == 'addholidayschedule') { echo "active open"; } ?>">
                                 <a href="#"> <i class="fa fa-credit-card" aria-hidden="true"></i> Schedule <i class="fa arrow"></i> </a>
                                 <ul>
-                                    <li class="<?php if ($page == 'manageschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>schedule">View Schedule</a> </li>
-                                    <li class="<?php if ($page == 'addschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>schedule/add">Add New Employee</a> </li>
+                                    <li class="<?php if ($page == 'holidayschedule' || $page == 'addholidayschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>holidayschedule">Holiday Schedule</a> </li>
                                 </ul>
                             </li>
                             <li class="<?php if ($page == 'department' || $page == 'jobposition' || $page == 'holiday') { echo "active open"; } ?>">
@@ -107,6 +106,16 @@
                             $this->load->view('layouts/holiday/holiday', $data);
                             break;
                         }
+                        case 'holidayschedule': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/holidayschedule/index', $data);
+                            break;
+                        }
+                        case 'addholidayschedule': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/holidayschedule/add', $data);
+                            break;
+                        }
                         // case 'totalincome': {
                         //     $data['page'] = $page;
                         //     $this->load->view('layouts/superuser/totalincome', $data);
@@ -139,8 +148,18 @@
         <script src="<?php echo base_url(); ?>assets/js/vendor.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/jquery.tabledit.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
-        <script src="<?php echo base_url(); ?>assets/js/custom.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/duplicateFields.min.js"></script>
+
+        <script type="text/javascript">
+
+            $('.add-schedule').click(function(){
+                console.log('clicked!');
+                $('table#dtl-schedule').append( $('table#dtl-schedule tr:last').clone(true, true) );
+            });
+
+        </script>
     </body>
 
 </html>
 
+ <!-- <?php $data = array('type' => 'text','class' => 'form-control','id' => 'holidayschedulename','name' => 'holidayschedulename','required' => true);echo form_input($data); ?> -->
