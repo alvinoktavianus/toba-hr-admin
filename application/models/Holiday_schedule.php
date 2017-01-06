@@ -31,6 +31,26 @@ class Holiday_schedule extends CI_Model {
         $this->db->insert('StpDtlHolidaySchedule', $object);
     }
 
+    public function get_holiday_schedule()
+    {
+        $this->db->select('*');
+        $this->db->from('StpHolidaySchedule');
+        $this->db->join('StpDtlHolidaySchedule', 'StpHolidaySchedule.HolidayScheduleId = StpDtlHolidaySchedule.HolidayScheduleId');
+        $this->db->join('MsHoliday', 'StpDtlHolidaySchedule.HolidayId = MsHoliday.HolidayId');
+        return $this->db->get()->result();
+    }
+
+    public function get_holiday_hdr()
+    {
+        return $this->db->get('StpHolidaySchedule')->result();
+    }
+
+    public function update_holiday_schedule($id, $object)
+    {
+        $this->db->where('HolidayScheduleId', $id);
+        $this->db->update('StpHolidaySchedule', $object);
+    }
+
 }
 
 /* End of file Holiday_schedule.php */
