@@ -48,12 +48,8 @@
                             <li class="<?php if ($page == 'home') { echo "active"; } ?>">
                                 <a href="<?php echo base_url(); ?>"> <i class="fa fa-home"></i> Dashboard </a>
                             </li>
-                            <li class="<?php if ($page == 'manageemployee' || $page == 'addemployee') { echo "active open"; } ?>">
-                                <a href="#"> <i class="fa fa-users" aria-hidden="true"></i> Manage Employee <i class="fa arrow"></i> </a>
-                                <ul>
-                                    <li class="<?php if ($page == 'manageemployee') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>manageemployee">View Employee</a> </li>
-                                    <li class="<?php if ($page == 'addemployee') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>manageemployee/add">Add New Employee</a> </li>
-                                </ul>
+                            <li class="<?php if ($page == 'manageemployee' || $page == 'addemployee') { echo "active"; } ?>">
+                                <a href="<?php echo base_url(); ?>manageemployee"> <i class="fa fa-users" aria-hidden="true"></i> Manage Employee </a>
                             </li>
                             <li class="<?php if ($page == 'holidayschedule' || $page == 'addholidayschedule') { echo "active open"; } ?>">
                                 <a href="#"> <i class="fa fa-credit-card" aria-hidden="true"></i> Schedule <i class="fa arrow"></i> </a>
