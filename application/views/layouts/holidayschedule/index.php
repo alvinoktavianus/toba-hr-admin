@@ -42,6 +42,14 @@
         <td>
             <div class="table-responsive">
                 <table class="table">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th>Name</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Holiday Type</th>
+                        </tr>
+                    </thead>
                     <?php foreach($schedule['details'] as $detail): ?>
                         <tr>
                             <td><?php echo $detail['name']; ?></td>

@@ -52,18 +52,42 @@
                                 <a href="<?php echo base_url(); ?>manageemployee"> <i class="fa fa-users" aria-hidden="true"></i> Manage Employee </a>
                             </li>
                             <li class="<?php if ($page == 'holidayschedule' || $page == 'addholidayschedule') { echo "active open"; } ?>">
-                                <a href="#"> <i class="fa fa-credit-card" aria-hidden="true"></i> Schedule <i class="fa arrow"></i> </a>
+                                <a href="#"> <i class="fa fa-tasks" aria-hidden="true"></i> Schedule <i class="fa arrow"></i> </a>
                                 <ul>
                                     <li class="<?php if ($page == 'holidayschedule' || $page == 'addholidayschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>holidayschedule">Holiday Schedule</a> </li>
                                 </ul>
+                                <ul>
+                                    <li class="<?php if ($page == 'overtimeindex' || $page == 'addovertimeindex') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>overtimeindex">Overtime Index</a> </li>
+                                </ul>
+                                <ul>
+                                    <li class="<?php if ($page == 'rounding' || $page == 'addrounding') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>rounding"> Rounding</a> </li>
+                                </ul>
+                                <ul>
+                                    <li class="<?php if ($page == 'schedule' || $page == 'addschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>holidayschedule">Schedule</a> </li>
+                                </ul>
+                                <ul>
+                                    <li class="<?php if ($page == 'shift' || $page == 'addshift') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>holidayschedule">Shift</a> </li>
+                                </ul>
+                                <ul>
+                                    <li class="<?php if ($page == 'timerule' || $page == 'addtimerule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>holidayschedule">Time Rule</a> </li>
+                                </ul>
+                                <ul>
+                                    <li class="<?php if ($page == 'workday' || $page == 'addworkday') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>holidayschedule">Workday</a> </li>
+                                </ul>
+                            </li>
+                            <li class="<?php if ($page == 'manageworkrule') { echo "active"; } ?>">
+                                <a href="<?php echo base_url(); ?>manageworkrule"> <i class="fa fa-building-o" aria-hidden="true"></i> Manage Work Rule </a>
                             </li>
                             <li class="<?php if ($page == 'department' || $page == 'jobposition' || $page == 'holiday') { echo "active open"; } ?>">
-                                <a href="#"> <i class="fa fa-credit-card" aria-hidden="true"></i> Master Data <i class="fa arrow"></i> </a>
+                                <a href="#"> <i class="fa fa-asterisk" aria-hidden="true"></i> Master Data <i class="fa arrow"></i> </a>
                                 <ul>
                                     <li class="<?php if ($page == 'department') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>department">Department</a> </li>
                                     <li class="<?php if ($page == 'jobposition') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>jobposition">Job Position</a> </li>
                                     <li class="<?php if ($page == 'holiday') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>holiday">Holiday</a> </li>
                                 </ul>
+                            </li>
+                            <li class="<?php if ($page == 'monthlyreport' ) { echo "active"; } ?>">
+                                <a href="<?php echo base_url(); ?>monthlyreport"> <i class="fa fa-check-square-o" aria-hidden="true"></i> Manage Employee </a>
                             </li>
                         </ul>
                     </nav>
