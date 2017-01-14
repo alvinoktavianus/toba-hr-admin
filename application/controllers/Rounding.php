@@ -93,7 +93,7 @@ class Rounding extends CI_Controller {
 
             $this->db->trans_commit();
 
-            $this->session->set_flashdata('success', 'Successfull add new overtime index');
+            $this->session->set_flashdata('success', 'Successfull add new rounding');
             redirect('/rounding','refresh');
 
         } else {
