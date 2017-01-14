@@ -47,8 +47,8 @@
                                             <table class="table dynamic" border="0">
                                                 <thead class="thead-inverse">
                                                     <tr>
-                                                        <th>From Hour</th>
-                                                        <th>To Hour</th>
+                                                        <th>Hour From</th>
+                                                        <th>Hour To</th>
                                                         <th>Index</th>
                                                         <th>Accum Index</th>
                                                         <th></th>
