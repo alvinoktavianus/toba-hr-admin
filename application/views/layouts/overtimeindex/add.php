@@ -88,7 +88,9 @@
                                                                 'class' => 'form-control',
                                                                 'id' => 'index',
                                                                 'name' => 'index[]',
-                                                                'required' => true
+                                                                'required' => true,
+                                                                'step' => 0.001,
+                                                                'min' => 0,
                                                             );
                                                             echo form_input($data);
                                                             ?>
@@ -100,7 +102,9 @@
                                                                 'class' => 'form-control',
                                                                 'id' => 'accumindex',
                                                                 'name' => 'accumindex[]',
-                                                                'required' => true
+                                                                'required' => true,
+                                                                'step' => 0.001,
+                                                                'min' => 0,
                                                             );
                                                             echo form_input($data);
                                                             ?>
