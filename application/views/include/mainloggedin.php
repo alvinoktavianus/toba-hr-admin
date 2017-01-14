@@ -51,7 +51,10 @@
                             <li class="<?php if ($page == 'manageemployee' || $page == 'addemployee') { echo "active"; } ?>">
                                 <a href="<?php echo base_url(); ?>manageemployee"> <i class="fa fa-users" aria-hidden="true"></i> Manage Employee </a>
                             </li>
-                            <li class="<?php if ($page == 'holidayschedule' || $page == 'addholidayschedule') { echo "active open"; } ?>">
+                            <li class="<?php if ($page == 'holidayschedule' ||
+                                                 $page == 'addholidayschedule' ||
+                                                 $page == 'overtimeindex' ||
+                                                 $page == 'addovertimeindex') { echo "active open"; } ?>">
                                 <a href="#"> <i class="fa fa-tasks" aria-hidden="true"></i> Schedule <i class="fa arrow"></i> </a>
                                 <ul>
                                     <li class="<?php if ($page == 'holidayschedule' || $page == 'addholidayschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>holidayschedule">Holiday Schedule</a> </li>
@@ -96,7 +99,7 @@
                 </aside>
 
                 <div class="sidebar-overlay" id="sidebar-overlay"></div>
-                
+
                 <?php
                     switch ($page) {
                         case 'home': {
@@ -134,6 +137,16 @@
                         case 'addholidayschedule': {
                             $data['page'] = $page;
                             $this->load->view('layouts/holidayschedule/add', $data);
+                            break;
+                        }
+                        case 'overtimeindex': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/overtimeindex/index', $data);
+                            break;
+                        }
+                        case 'addovertimeindex': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/overtimeindex/add', $data);
                             break;
                         }
                         // case 'totalincome': {
@@ -176,6 +189,10 @@
                 console.log('clicked!');
                 $('table#dtl-schedule').append( $('table#dtl-schedule tr:last').clone(true, true) );
             });
+
+            $('.add').click(function() {
+                $('table.dynamic').append( $('table.dynamic tr:last').clone(true, true) );
+            })
 
         </script>
     </body>
