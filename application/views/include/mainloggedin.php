@@ -249,9 +249,19 @@
                 $('table.dynamic').append( $('table.dynamic tr:last').clone(true, true) );
             })
 
+            $('#norounding').click(function() {
+                if ( $('input#norounding').prop("checked") ) {
+                    $('#dtl-rounding').hide();
+                    $('input#norounding').val('Y');
+                    console.log($(this).val());
+                } else {
+                    $('#dtl-rounding').show();
+                    $('input#norounding').val('N');
+                    console.log($(this).val());
+                }
+            });
+
         </script>
     </body>
 
 </html>
-
- <!-- <?php $data = array('type' => 'text','class' => 'form-control','id' => 'holidayschedulename','name' => 'holidayschedulename','required' => true);echo form_input($data); ?> -->

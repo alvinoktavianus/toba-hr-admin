@@ -29,6 +29,16 @@
             </div>
 
             <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group row">
+                        <label style="padding-left: 15px;">
+                            <input type="checkbox" id="norounding" name="norounding" class="checkbox" value="N"/><span>No Rounding</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" id="dtl-rounding">
                 <div class="col-md-12">
 
                     <div class="table-responsive">
@@ -63,7 +73,6 @@
                                                                 'class' => 'form-control',
                                                                 'id' => 'minutesfrom',
                                                                 'name' => 'minutesfrom[]',
-                                                                'required' => true
                                                             );
                                                             echo form_input($data);
                                                             ?>
@@ -75,7 +84,6 @@
                                                                 'class' => 'form-control',
                                                                 'id' => 'minutesto',
                                                                 'name' => 'minutesto[]',
-                                                                'required' => true
                                                             );
                                                             echo form_input($data);
                                                             ?>
@@ -87,7 +95,6 @@
                                                                 'class' => 'form-control',
                                                                 'id' => 'rounding',
                                                                 'name' => 'rounding[]',
-                                                                'required' => true,
                                                                 'step' => 0.001,
                                                                 'min' => 0,
                                                             );

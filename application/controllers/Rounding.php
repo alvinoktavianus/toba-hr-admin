@@ -28,13 +28,15 @@ class Rounding extends CI_Controller {
                 $generate['isactive'] = $hdr[$i]->IsActive;
 
                 $details = array();
+                $k = 1;
                 for ( $j=0; $j<count($dtl); $j++ ) {
                     if ( $hdr[$i]->RoundingId == $dtl[$j]->RoundingId ) {
-                        $temp['line'] = $j+1;
+                        $temp['line'] = $k;
                         $temp['minutesfrom'] = $dtl[$j]->MinutesFrom;
                         $temp['minutesto'] = $dtl[$j]->MinutesTo;
                         $temp['value'] = $dtl[$j]->RoundingValue;
                         array_push($details, $temp);
+                        $k++;
                     }
                 }
                 $generate['details'] = $details;
@@ -72,26 +74,36 @@ class Rounding extends CI_Controller {
 
             $header = array(
                 'Description' => $this->input->post('roundingname'),
+                'CreatedAt' => date(DATE_W3C, now('Asia/Jakarta')),
                 'CreatedBy' => $this->session->userdata('user_session')['employeeid'],
             );
 
-            $this->db->trans_begin();
-            $this->rounding_data->insert_rounding_hdr($header);
-            $current = $this->rounding_data->get_rounding_id();
+            if ( $this->input->post('norounding') == 'Y' ) {
+                $header['IsRounding'] = 'N';
+                $this->db->trans_begin();
+                $this->rounding_data->insert_rounding_hdr($header);
+                $this->db->trans_commit();
+            } else {
+                $header['IsRounding'] = 'Y';
 
-            for ($i=0; $i < count($this->input->post('minutesfrom')); $i++) {
-                $details = array();
-                $details = array(
-                    'RoundingId' => (int)$current,
-                    'MinutesFrom' => $minutesfrom[$i],
-                    'MinutesTo' => $minutesto[$i],
-                    'RoundingValue' => $rounding[$i],
-                    'CreatedBy' => $this->session->userdata('user_session')['employeeid'],
-                );
-                $this->rounding_data->insert_rounding_dtl($details);
+                $this->db->trans_begin();
+                $this->rounding_data->insert_rounding_hdr($header);
+                $current = $this->rounding_data->get_rounding_id();
+
+                for ($i=0; $i < count($this->input->post('minutesfrom')); $i++) {
+                    $details = array();
+                    $details = array(
+                        'RoundingId' => (int)$current,
+                        'MinutesFrom' => $minutesfrom[$i],
+                        'MinutesTo' => $minutesto[$i],
+                        'RoundingValue' => $rounding[$i],
+                        'CreatedBy' => $this->session->userdata('user_session')['employeeid'],
+                    );
+                    $this->rounding_data->insert_rounding_dtl($details);
+                }
+
+                $this->db->trans_commit();
             }
-
-            $this->db->trans_commit();
 
             $this->session->set_flashdata('success', 'Successfull add new rounding');
             redirect('/rounding','refresh');
