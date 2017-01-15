@@ -69,7 +69,9 @@
                                                  $page == 'timerule' ||
                                                  $page == 'addtimerule' ||
                                                  $page == 'workday' || 
-                                                 $page == 'addworkday') { echo "active open"; } ?>">
+                                                 $page == 'addworkday' ||
+                                                 $page == 'schedule' ||
+                                                 $page == 'addschedule') { echo "active open"; } ?>">
                                 <a href="#"> <i class="fa fa-tasks" aria-hidden="true"></i> Schedule <i class="fa arrow"></i> </a>
                                 <ul>
                                     <li class="<?php if ($page == 'holidayschedule' || $page == 'addholidayschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>holidayschedule">Holiday Schedule</a> </li>
@@ -81,7 +83,7 @@
                                     <li class="<?php if ($page == 'rounding' || $page == 'addrounding') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>rounding"> Rounding</a> </li>
                                 </ul>
                                 <ul>
-                                    <li class="<?php if ($page == 'schedule' || $page == 'addschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>holidayschedule">Schedule</a> </li>
+                                    <li class="<?php if ($page == 'schedule' || $page == 'addschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>schedule">Schedule</a> </li>
                                 </ul>
                                 <ul>
                                     <li class="<?php if ($page == 'shift' || $page == 'addshift') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>shift">Shift</a> </li>
@@ -204,6 +206,16 @@
                             $this->load->view('layouts/workday/add', $data);
                             break;
                         }
+                        case 'schedule': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/schedule/index', $data);
+                            break;
+                        }
+                        case 'addschedule': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/schedule/add', $data);
+                            break;
+                        }
                         // case 'totalincome': {
                         //     $data['page'] = $page;
                         //     $this->load->view('layouts/superuser/totalincome', $data);
@@ -247,7 +259,11 @@
 
             $('.add').click(function() {
                 $('table.dynamic').append( $('table.dynamic tr:last').clone(true, true) );
-            })
+            });
+
+            $('#add-rotation').click(function() {
+                $('table#dtl-rotation').append( $('table#dtl-rotation tr:last').clone(true, true) );
+            });
 
             $('#norounding').click(function() {
                 if ( $('input#norounding').prop("checked") ) {
@@ -257,6 +273,28 @@
                 } else {
                     $('#dtl-rounding').show();
                     $('input#norounding').val('N');
+                    console.log($(this).val());
+                }
+            });
+
+            $('#norotation').click(function() {
+                if ( $('input#norotation').prop("checked") ) {
+                    $('#dtl-rotation').hide();
+                    $('input#norotation').val('Y');
+                    console.log($(this).val());
+                } else {
+                    $('#dtl-rotation').show();
+                    $('input#norotation').val('N');
+                    console.log($(this).val());
+                }
+            });
+
+            $('#offshift').click(function() {
+                if ( $('input#offshift').prop("checked") ) {
+                    $('input#offshift').val('Y');
+                    console.log($(this).val());
+                } else {
+                    $('input#offshift').val('N');
                     console.log($(this).val());
                 }
             });
