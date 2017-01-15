@@ -13,6 +13,13 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/vendor.css">
         <!-- Theme initialization -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/app-blue.css">
+        <!-- Custom style -->
+        <style>
+            .table thead th {
+                vertical-align: middle;
+                text-align: center;
+            }
+        </style>
     </head>
 
     <body>
