@@ -60,7 +60,9 @@
                                                  $page == 'shift' ||
                                                  $page == 'addshift' ||
                                                  $page == 'timerule' ||
-                                                 $page == 'addtimerule') { echo "active open"; } ?>">
+                                                 $page == 'addtimerule' ||
+                                                 $page == 'workday' || 
+                                                 $page == 'addworkday') { echo "active open"; } ?>">
                                 <a href="#"> <i class="fa fa-tasks" aria-hidden="true"></i> Schedule <i class="fa arrow"></i> </a>
                                 <ul>
                                     <li class="<?php if ($page == 'holidayschedule' || $page == 'addholidayschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>holidayschedule">Holiday Schedule</a> </li>
@@ -81,7 +83,7 @@
                                     <li class="<?php if ($page == 'timerule' || $page == 'addtimerule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>timerule">Time Rule</a> </li>
                                 </ul>
                                 <ul>
-                                    <li class="<?php if ($page == 'workday' || $page == 'addworkday') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>holidayschedule">Workday</a> </li>
+                                    <li class="<?php if ($page == 'workday' || $page == 'addworkday') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>workday">Workday</a> </li>
                                 </ul>
                             </li>
                             <li class="<?php if ($page == 'manageworkrule') { echo "active"; } ?>">
@@ -183,6 +185,16 @@
                         case 'addtimerule': {
                             $data['page'] = $page;
                             $this->load->view('layouts/timerule/add', $data);
+                            break;
+                        }
+                        case 'workday': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/workday/index', $data);
+                            break;
+                        }
+                        case 'addworkday': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/workday/add', $data);
                             break;
                         }
                         // case 'totalincome': {
