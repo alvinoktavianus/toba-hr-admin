@@ -27,14 +27,16 @@ class OvertimeIndex extends CI_Controller{
                 $generate['isactive'] = $hdr[$i]->IsActive;
 
                 $details = array();
+                $k = 1;
                 for ( $j=0; $j<count($data); $j++ ) {
                     if ( $hdr[$i]->OvertimeIndexId == $data[$j]->OvertimeIndexId ) {
-                        $temp['line'] = $j+1;
+                        $temp['line'] = $k;
                         $temp['fromhour'] = $data[$j]->FromHour;
                         $temp['tohour'] = $data[$j]->ToHour;
                         $temp['index'] = $data[$j]->OvertimeIndex;
                         $temp['accumindex'] = $data[$j]->AccumIndex;
                         array_push($details, $temp);
+                        $k++;
                     }
                 }
                 $generate['details'] = $details;

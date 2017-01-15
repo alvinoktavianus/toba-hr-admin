@@ -30,6 +30,7 @@ class Overtime_index extends CI_Model{
         $this->db->select('*');
         $this->db->from('StpHdrOvertimeIndex');
         $this->db->join('StpDtlOvertimeIndex', 'StpHdrOvertimeIndex.OvertimeIndexId = StpDtlOvertimeIndex.OvertimeIndexId');
+        $this->db->order_by('StpDtlOvertimeIndex.AccumIndex', 'asc');
         return $this->db->get()->result();
     }
 
