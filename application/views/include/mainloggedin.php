@@ -13,6 +13,13 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/vendor.css">
         <!-- Theme initialization -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/app-blue.css">
+        <!-- Custom style -->
+        <style>
+            .table thead th {
+                vertical-align: middle;
+                text-align: center;
+            }
+        </style>
     </head>
 
     <body>
@@ -48,26 +55,57 @@
                             <li class="<?php if ($page == 'home') { echo "active"; } ?>">
                                 <a href="<?php echo base_url(); ?>"> <i class="fa fa-home"></i> Dashboard </a>
                             </li>
-                            <li class="<?php if ($page == 'manageemployee' || $page == 'addemployee') { echo "active open"; } ?>">
-                                <a href="#"> <i class="fa fa-users" aria-hidden="true"></i> Manage Employee <i class="fa arrow"></i> </a>
+                            <li class="<?php if ($page == 'manageemployee' || $page == 'addemployee') { echo "active"; } ?>">
+                                <a href="<?php echo base_url(); ?>manageemployee"> <i class="fa fa-users" aria-hidden="true"></i> Manage Employee </a>
+                            </li>
+                            <li class="<?php if ($page == 'holidayschedule' ||
+                                                 $page == 'addholidayschedule' ||
+                                                 $page == 'overtimeindex' ||
+                                                 $page == 'addovertimeindex' ||
+                                                 $page == 'rounding' ||
+                                                 $page == 'addrounding' ||
+                                                 $page == 'shift' ||
+                                                 $page == 'addshift' ||
+                                                 $page == 'timerule' ||
+                                                 $page == 'addtimerule' ||
+                                                 $page == 'workday' || 
+                                                 $page == 'addworkday') { echo "active open"; } ?>">
+                                <a href="#"> <i class="fa fa-tasks" aria-hidden="true"></i> Schedule <i class="fa arrow"></i> </a>
                                 <ul>
-                                    <li class="<?php if ($page == 'manageemployee') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>manageemployee">View Employee</a> </li>
-                                    <li class="<?php if ($page == 'addemployee') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>manageemployee/add">Add New Employee</a> </li>
+                                    <li class="<?php if ($page == 'holidayschedule' || $page == 'addholidayschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>holidayschedule">Holiday Schedule</a> </li>
+                                </ul>
+                                <ul>
+                                    <li class="<?php if ($page == 'overtimeindex' || $page == 'addovertimeindex') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>overtimeindex">Overtime Index</a> </li>
+                                </ul>
+                                <ul>
+                                    <li class="<?php if ($page == 'rounding' || $page == 'addrounding') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>rounding"> Rounding</a> </li>
+                                </ul>
+                                <ul>
+                                    <li class="<?php if ($page == 'schedule' || $page == 'addschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>holidayschedule">Schedule</a> </li>
+                                </ul>
+                                <ul>
+                                    <li class="<?php if ($page == 'shift' || $page == 'addshift') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>shift">Shift</a> </li>
+                                </ul>
+                                <ul>
+                                    <li class="<?php if ($page == 'timerule' || $page == 'addtimerule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>timerule">Time Rule</a> </li>
+                                </ul>
+                                <ul>
+                                    <li class="<?php if ($page == 'workday' || $page == 'addworkday') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>workday">Workday</a> </li>
                                 </ul>
                             </li>
-                            <li class="<?php if ($page == 'manageschedule' || $page == 'addschedule') { echo "active open"; } ?>">
-                                <a href="#"> <i class="fa fa-credit-card" aria-hidden="true"></i> Schedule <i class="fa arrow"></i> </a>
-                                <ul>
-                                    <li class="<?php if ($page == 'manageschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>schedule">View Schedule</a> </li>
-                                    <li class="<?php if ($page == 'addschedule') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>schedule/add">Add New Employee</a> </li>
-                                </ul>
+                            <li class="<?php if ($page == 'manageworkrule') { echo "active"; } ?>">
+                                <a href="<?php echo base_url(); ?>manageworkrule"> <i class="fa fa-building-o" aria-hidden="true"></i> Manage Work Rule </a>
                             </li>
-                            <li class="<?php if ($page == 'department' || $page == 'jobposition') { echo "active open"; } ?>">
-                                <a href="#"> <i class="fa fa-credit-card" aria-hidden="true"></i> Master Data <i class="fa arrow"></i> </a>
+                            <li class="<?php if ($page == 'department' || $page == 'jobposition' || $page == 'holiday') { echo "active open"; } ?>">
+                                <a href="#"> <i class="fa fa-asterisk" aria-hidden="true"></i> Master Data <i class="fa arrow"></i> </a>
                                 <ul>
                                     <li class="<?php if ($page == 'department') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>department">Department</a> </li>
                                     <li class="<?php if ($page == 'jobposition') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>jobposition">Job Position</a> </li>
+                                    <li class="<?php if ($page == 'holiday') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>holiday">Holiday</a> </li>
                                 </ul>
+                            </li>
+                            <li class="<?php if ($page == 'monthlyreport' ) { echo "active"; } ?>">
+                                <a href="<?php echo base_url(); ?>monthlyreport"> <i class="fa fa-check-square-o" aria-hidden="true"></i> Monthly Report </a>
                             </li>
                         </ul>
                     </nav>
@@ -76,7 +114,7 @@
                 </aside>
 
                 <div class="sidebar-overlay" id="sidebar-overlay"></div>
-                
+
                 <?php
                     switch ($page) {
                         case 'home': {
@@ -99,6 +137,71 @@
                         case 'jobposition': {
                             $data['page'] = $page;
                             $this->load->view('layouts/jobposition/jobposition', $data);
+                            break;
+                        }
+                        case 'holiday': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/holiday/holiday', $data);
+                            break;
+                        }
+                        case 'holidayschedule': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/holidayschedule/index', $data);
+                            break;
+                        }
+                        case 'addholidayschedule': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/holidayschedule/add', $data);
+                            break;
+                        }
+                        case 'overtimeindex': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/overtimeindex/index', $data);
+                            break;
+                        }
+                        case 'addovertimeindex': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/overtimeindex/add', $data);
+                            break;
+                        }
+                        case 'rounding': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/rounding/index', $data);
+                            break;
+                        }
+                        case 'addrounding': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/rounding/add', $data);
+                            break;
+                        }
+                        case 'shift': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/shift/index', $data);
+                            break;
+                        }
+                        case 'addshift': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/shift/add', $data);
+                            break;
+                        }
+                        case 'timerule': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/timerule/index', $data);
+                            break;
+                        }
+                        case 'addtimerule': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/timerule/add', $data);
+                            break;
+                        }
+                        case 'workday': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/workday/index', $data);
+                            break;
+                        }
+                        case 'addworkday': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/workday/add', $data);
                             break;
                         }
                         // case 'totalincome': {
@@ -133,8 +236,32 @@
         <script src="<?php echo base_url(); ?>assets/js/vendor.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/jquery.tabledit.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
-        <script src="<?php echo base_url(); ?>assets/js/custom.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/duplicateFields.min.js"></script>
+
+        <script type="text/javascript">
+
+            $('.add-schedule').click(function(){
+                console.log('clicked!');
+                $('table#dtl-schedule').append( $('table#dtl-schedule tr:last').clone(true, true) );
+            });
+
+            $('.add').click(function() {
+                $('table.dynamic').append( $('table.dynamic tr:last').clone(true, true) );
+            })
+
+            $('#norounding').click(function() {
+                if ( $('input#norounding').prop("checked") ) {
+                    $('#dtl-rounding').hide();
+                    $('input#norounding').val('Y');
+                    console.log($(this).val());
+                } else {
+                    $('#dtl-rounding').show();
+                    $('input#norounding').val('N');
+                    console.log($(this).val());
+                }
+            });
+
+        </script>
     </body>
 
 </html>
-
