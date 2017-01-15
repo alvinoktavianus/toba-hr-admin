@@ -105,7 +105,7 @@
                                 </ul>
                             </li>
                             <li class="<?php if ($page == 'monthlyreport' ) { echo "active"; } ?>">
-                                <a href="<?php echo base_url(); ?>monthlyreport"> <i class="fa fa-check-square-o" aria-hidden="true"></i> Manage Employee </a>
+                                <a href="<?php echo base_url(); ?>monthlyreport"> <i class="fa fa-check-square-o" aria-hidden="true"></i> Monthly Report </a>
                             </li>
                         </ul>
                     </nav>
