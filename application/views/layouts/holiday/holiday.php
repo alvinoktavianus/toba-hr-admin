@@ -1,6 +1,6 @@
 <article class="content responsive-tables-page">
     <div class="title-block">
-        <h1 class="title">Job Position</h1>
+        <h1 class="title">Holiday</h1>
     </div>
     <section class="section">
 
@@ -57,11 +57,11 @@
                         </div>
 
                         <div class="form-group row">
-                            <?php echo form_label('End Name', 'enddate', array( 'class' => 'col-sm-4 form-control-label' )); ?>
+                            <?php echo form_label('End Date', 'enddate', array( 'class' => 'col-sm-4 form-control-label' )); ?>
                             <div class="col-sm-8">
                                 <?php
                                     $data = array(
-                                        'type' => 'text',
+                                        'type' => 'date',
                                         'class' => 'form-control',
                                         'id' => 'enddate',
                                         'name' => 'enddate',
@@ -94,14 +94,14 @@
                     </div>
 
                     <div class="col-md-4">
-                        <?php echo form_submit('save', 'Add Job Position', array( 'class' => 'btn btn-block btn-success' )); ?>
+                        <?php echo form_submit('save', 'Add', array( 'class' => 'btn btn-block btn-success' )); ?>
                     </div>
 
                 <?php echo form_close(); ?>
 
             </div>
 
-<!--             <?php if (count($holidays) > 0): ?>
+            <?php if (count($holidays) > 0): ?>
                 <div class="row">
                     <div class="col-md-8">
                         <div class="table-responsive">
@@ -109,7 +109,10 @@
                                 <thead class="thead-inverse">
                                     <tr>
                                         <th>#</th>
-                                        <th>Job Position Name</th>
+                                        <th>Holiday Name</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Holiday Type</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -119,15 +122,22 @@
 
                                         <tr>
                                             <td> <?php echo $holiday->HolidayId; ?> </td>
-                                            <td> <?php echo $holiday->Description ?> </td>
+                                            <td> <?php echo $holiday->Description; ?> </td>
+                                            <td> <?php echo $holiday->StartDate; ?> </td>
+                                            <td> <?php echo $holiday->EndDate; ?> </td>
+                                            <td>
+                                                <?php if ( $holiday->HolidayType == 'N' ): ?>
+                                                    Libur Nasional
+                                                <?php else: ?>
+                                                    Cuti Bersama
+                                                <?php endif; ?>
+                                            </td>
                                             <td>
                                                 <?php if ( $holiday->IsActive == 'Y' ): ?>
                                                     <a href="<?php echo base_url(); ?>holiday/deactivate?id=<?php echo $holiday->HolidayId; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you?')">Deactivate</a>
                                                 <?php else: ?>
                                                     <a href="<?php echo base_url(); ?>holiday/activate?id=<?php echo $holiday->HolidayId; ?>" class="btn btn-success btn-sm">Activate</a>
                                                 <?php endif; ?>
-                                                <br>
-                                                <a href="<?php echo base_url(); ?>holiday/update?id=<?php echo $holiday->HolidayId; ?>" class="btn btn-info btn-sm">Update</a>
                                             </td>
                                         </tr>
 
@@ -138,7 +148,7 @@
                         </div>                        
                     </div>
                 </div>
-            <?php endif; ?> -->
+            <?php endif; ?>
 
         </div>
     </section>
