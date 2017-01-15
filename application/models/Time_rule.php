@@ -27,6 +27,7 @@ class Time_rule extends CI_Model {
 
     public function get_overtime_dropdown()
     {
+        $this->db->where('IsActive', 'Y');
         $results = $this->db->get('StpHdrOvertimeIndex')->result();
         $dropdown[''] = '';
         foreach ($results as $result) {
@@ -37,6 +38,7 @@ class Time_rule extends CI_Model {
 
     public function get_rounding_dropdown()
     {
+        $this->db->where('IsActive', 'Y');
         $results = $this->db->get('StpRounding')->result();
         $dropdown[''] = '';
         foreach ($results as $result) {

@@ -18,6 +18,7 @@ class WorkDay_data extends CI_Model {
     public function get_all_time_rule()
     {
         $dropdown[''] = "";
+        $this->db->where('IsActive', 'Y');
         $results = $this->db->get('StpTimeRule')->result();
         foreach ($results as $result) {
             $dropdown[$result->TimeRuleId] = $result->Description;
