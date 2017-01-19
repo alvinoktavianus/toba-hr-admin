@@ -27,6 +27,8 @@ class ManageEmployee extends CI_Controller {
     {
         if ( $this->session->has_userdata('user_session') ) {
 
+            $data['departments'] = $this->employee->get_department_dropdown();
+            $data['jobpositions'] = $this->employee->get_jobposition_dropdown();
             $data['page_title'] = "Add Employee";
             $data['page'] = 'addemployee';
             $this->load->view('include/mainloggedin', $data);
@@ -51,6 +53,10 @@ class ManageEmployee extends CI_Controller {
             $address = $this->input->post('address');
             $postalcode = $this->input->post('postalcode');
             $role = $this->input->post('role');
+            $gender = $this->input->post('gender');
+            $imgurl = $this->input->post('imgurl');
+            $department = $this->input->post('department');
+            $jobposition = $this->input->post('jobposition');
 
             $data = array(
                 'IdCardNo' => $idcardno,
@@ -65,8 +71,13 @@ class ManageEmployee extends CI_Controller {
                 'PostalCode' => $postalcode,
                 'IsActive' => 'Y',
                 'IsEmployee' => 'Y',
+                'CreatedAt' => date(DATE_W3C, now('Asia/Jakarta')),
                 'CreatedBy' => $this->session->userdata('user_session')['employeeid'],
                 'Role' => $role,
+                'Gender' => $gender,
+                'ImgUrl' => $imgurl,
+                'DepartmentID' => $department,
+                'JobPositionID' => $jobposition,
             );
 
             $this->db->trans_begin();
@@ -76,10 +87,24 @@ class ManageEmployee extends CI_Controller {
             $this->db->trans_commit();
 
             $this->session->set_flashdata('success', 'Successfull add new employee!');
-            redirect('/manageemployee/add','refresh');
+            redirect('/manageemployee','refresh');
 
         } else {
             $this->load->view('errors/index.html');
+        }
+    }
+
+    public function update()
+    {
+        if ( $this->session->has_userdata('user_session') && $this->input->get('id') != null ) {
+            $data['current'] = $this->employee->get_employee_by_id($this->input->get('id'));
+            $data['departments'] = $this->employee->get_department_dropdown();
+            $data['jobpositions'] = $this->employee->get_jobposition_dropdown();
+            $data['page_title'] = "Update Employee";
+            $data['page'] = 'updateemployee';
+            $this->load->view('include/mainloggedin', $data);
+        } else {
+            redirect('/','refresh');
         }
     }
 

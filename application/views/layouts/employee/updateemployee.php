@@ -1,12 +1,12 @@
 <article class="content responsive-tables-page">
     <div class="title-block">
-        <h1 class="title">Add Employee</h1>
+        <h1 class="title">Update Employee</h1>
     </div>
     <section class="section">
 
         <div class="card card-block">
 
-        <?php echo form_open(base_url().'manageemployee/doadd', ''); ?>
+        <?php echo form_open(base_url().'manageemployee/doupdate?id=', ''); ?>
 
             <div class="row">
                 <div class="col-md-6">
@@ -27,6 +27,7 @@
                                     'id' => 'idcardno',
                                     'name' => 'idcardno',
                                     'required' => true,
+                                    'value' => $current->IdCardNo
                                 );
                                 echo form_input($data);
                             ?>
@@ -43,6 +44,7 @@
                                     'id' => 'fullname',
                                     'name' => 'fullname',
                                     'required' => true,
+                                    'value' => $current->FullName,
                                 );
                                 echo form_input($data);
                             ?>
@@ -59,6 +61,7 @@
                                     'id' => 'birthlocation',
                                     'name' => 'birthlocation',
                                     'required' => true,
+                                    'value' => $current->BirthLocation,
                                 );
                                 echo form_input($data);
                             ?>
@@ -75,6 +78,7 @@
                                     'id' => 'birthdate',
                                     'name' => 'birthdate',
                                     'required' => true,
+                                    'value' => $current->BirthDate,
                                 );
                                 echo form_input($data);
                             ?>
@@ -91,7 +95,7 @@
                                     'style' => 'resize:none',
                                     'required' => true,
                                 );
-                                echo form_textarea(array( 'name' => 'address', 'rows' => 3 ), '', $data);
+                                echo form_textarea(array( 'name' => 'address', 'rows' => 3 ), $current->Address, $data);
                             ?>
                         </div>
                     </div>
@@ -106,6 +110,7 @@
                                     'id' => 'postalcode',
                                     'name' => 'postalcode',
                                     'required' => true,
+                                    'value' => $current->PostalCode,
                                 );
                                 echo form_input($data);
                             ?>
@@ -126,7 +131,7 @@
                                     'M' => 'Male',
                                     'F' => 'Female',
                                 );
-                                echo form_dropdown('gender', $options, '', $data);
+                                echo form_dropdown('gender', $options, $current->Gender, $data);
                             ?>
                         </div>
                     </div>
@@ -148,7 +153,7 @@
                                     'B' => 'B',
                                     'AB' => 'AB'
                                 );
-                                echo form_dropdown('bloodtype', $options, '', $data);
+                                echo form_dropdown('bloodtype', $options, $current->BloodType, $data);
                             ?>
                         </div>
                     </div>
@@ -163,22 +168,7 @@
                                     'id' => 'email',
                                     'name' => 'email',
                                     'required' => true,
-                                );
-                                echo form_input($data);
-                            ?>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <?php echo form_label('Password', 'password', array( 'class' => 'col-sm-4 form-control-label' )); ?>
-                        <div class="col-sm-8">
-                            <?php
-                                $data = array(
-                                    'type' => 'password',
-                                    'class' => 'form-control',
-                                    'id' => 'password',
-                                    'name' => 'password',
-                                    'required' => true,
+                                    'value' => $current->Email,
                                 );
                                 echo form_input($data);
                             ?>
@@ -195,6 +185,7 @@
                                     'id' => 'phoneno',
                                     'name' => 'phoneno',
                                     'required' => true,
+                                    'value' => $current->PhoneNo,
                                 );
                                 echo form_input($data);
                             ?>
@@ -211,29 +202,9 @@
                                     'id' => 'imgurl',
                                     'name' => 'imgurl',
                                     'required' => true,
+                                    'value' => $current->ImgUrl,
                                 );
                                 echo form_input($data);
-                            ?>
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <?php echo form_label('Role', 'role', array( 'class' => 'col-sm-4 form-control-label' )); ?>
-                        <div class="col-sm-8">
-                            <?php
-                                $data = array(
-                                    'type' => 'number',
-                                    'class' => 'form-control',
-                                    'id' => 'role',
-                                    'name' => 'role',
-                                    'required' => true,
-                                );
-                                $options = array(
-                                    '' => '',
-                                    'emp' => 'Employee',
-                                    'adm' => 'Administrator'
-                                );
-                                echo form_dropdown('role', $options, '', $data);
                             ?>
                         </div>
                     </div>
@@ -249,7 +220,7 @@
                                     'name' => 'department',
                                     'required' => true,
                                 );
-                                echo form_dropdown('department', $departments, '', $data);
+                                echo form_dropdown('department', $departments, $current->DepartmentID, $data);
                             ?>
                         </div>
                     </div>
@@ -270,7 +241,7 @@
                                     'emp' => 'Employee',
                                     'adm' => 'Administrator'
                                 );
-                                echo form_dropdown('jobposition', $jobpositions, '', $data);
+                                echo form_dropdown('jobposition', $jobpositions, $current->JobPositionID, $data);
                             ?>
                         </div>
                     </div>

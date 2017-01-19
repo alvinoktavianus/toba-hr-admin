@@ -55,7 +55,7 @@
                             <li class="<?php if ($page == 'home') { echo "active"; } ?>">
                                 <a href="<?php echo base_url(); ?>"> <i class="fa fa-home"></i> Dashboard </a>
                             </li>
-                            <li class="<?php if ($page == 'manageemployee' || $page == 'addemployee') { echo "active"; } ?>">
+                            <li class="<?php if ($page == 'manageemployee' || $page == 'addemployee' || $page == 'updateemployee') { echo "active"; } ?>">
                                 <a href="<?php echo base_url(); ?>manageemployee"> <i class="fa fa-users" aria-hidden="true"></i> Manage Employee </a>
                             </li>
                             <li class="<?php if ($page == 'holidayschedule' ||
@@ -129,6 +129,10 @@
                         }
                         case 'addemployee': {
                             $this->load->view('layouts/employee/addemployee');
+                            break;
+                        }
+                        case 'updateemployee': {
+                            $this->load->view('layouts/employee/updateemployee');
                             break;
                         }
                         case 'department': {
