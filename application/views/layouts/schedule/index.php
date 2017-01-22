@@ -1,6 +1,6 @@
 <article class="content responsive-tables-page">
     <div class="title-block">
-        <h1 class="title">Shift</h1>
+        <h1 class="title">Schedule</h1>
     </div>
     <section class="section">
 
@@ -21,6 +21,90 @@
                 </div>
 
             </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-sm">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>#</th>
+                    <th>Description</th>
+                    <th>Day in Schedule</th>
+                    <th>Shift Detail</th>
+                    <th>Rotation Detail</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                
+<tr>
+    <td>1</td>
+    <td>Employee Schedule</td>
+    <td>7</td>
+    <td>
+        <table class="table table-striped table-bordered table-sm">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>#</th>
+                    <th>Workday</th>
+                    <th>Shift</th>
+                    <th>Off Shift</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Test Workday</td>
+                    <td>Regular Shift</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Test Workday</td>
+                    <td>Regular Shift</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Test Workday</td>
+                    <td>Regular Shift</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Test Workday</td>
+                    <td>Regular Shift</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Test Workday</td>
+                    <td>Regular Shift</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Test Workday</td>
+                    <td>Regular Shift</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Test Workday</td>
+                    <td>Regular Shift</td>
+                    <td>Yes</td>
+                </tr>
+            </tbody>
+        </table>
+    </td>
+    <td>-</td>
+    <td>
+<a href="<?php echo base_url(); ?>schedule/deactivate?id=1" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you?')">Deactivate</a>
+    </td>
+</tr>
+
+            </tbody>
+        </table>
+    </div>
 
 <!-- <?php if ( count($results) > 0 ): ?>
 
