@@ -220,21 +220,6 @@
                             $this->load->view('layouts/schedule/add', $data);
                             break;
                         }
-                        // case 'totalincome': {
-                        //     $data['page'] = $page;
-                        //     $this->load->view('layouts/superuser/totalincome', $data);
-                        //     break;
-                        // }
-                        // case 'activationkey': {
-                        //     $data['page'] = $page;
-                        //     $this->load->view('layouts/superuser/activationkey', $data);
-                        //     break;
-                        // }
-                        // case 'genealogy': {
-                        //     $data['page'] = $page;
-                        //     $this->load->view('layouts/superuser/genealogy', $data);
-                        //     break;
-                        // }
                         case 'workrule': {
                             $data['page'] = $page;
                             $this->load->view('layouts/workrule/index', $data);
@@ -243,6 +228,11 @@
                         case 'addworkrule': {
                             $data['page'] = $page;
                             $this->load->view('layouts/workrule/add', $data);
+                            break;
+                        }
+                        case 'monthlyreport': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/monthlyreport', $data);
                             break;
                         }
                     }
