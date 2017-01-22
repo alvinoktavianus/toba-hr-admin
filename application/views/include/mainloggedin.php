@@ -95,8 +95,8 @@
                                     <li class="<?php if ($page == 'workday' || $page == 'addworkday') { echo "active"; } ?>"> <a href="<?php echo base_url(); ?>workday">Workday</a> </li>
                                 </ul>
                             </li>
-                            <li class="<?php if ($page == 'manageworkrule') { echo "active"; } ?>">
-                                <a href="<?php echo base_url(); ?>manageworkrule"> <i class="fa fa-building-o" aria-hidden="true"></i> Manage Work Rule </a>
+                            <li class="<?php if ($page == 'workrule' || $page == 'addworkrule') { echo "active"; } ?>">
+                                <a href="<?php echo base_url(); ?>workrule"> <i class="fa fa-building-o" aria-hidden="true"></i> Manage Work Rule </a>
                             </li>
                             <li class="<?php if ($page == 'department' || $page == 'jobposition' || $page == 'holiday') { echo "active open"; } ?>">
                                 <a href="#"> <i class="fa fa-asterisk" aria-hidden="true"></i> Master Data <i class="fa arrow"></i> </a>
@@ -235,6 +235,16 @@
                         //     $this->load->view('layouts/superuser/genealogy', $data);
                         //     break;
                         // }
+                        case 'workrule': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/workrule/index', $data);
+                            break;
+                        }
+                        case 'addworkrule': {
+                            $data['page'] = $page;
+                            $this->load->view('layouts/workrule/add', $data);
+                            break;
+                        }
                     }
                 ?>
 
