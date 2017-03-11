@@ -14,6 +14,7 @@
         <!-- Theme initialization -->
         <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/app-blue.css">
         <!-- Custom style -->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-dialog.min.css">
         <style>
             .table thead th {
                 vertical-align: middle;
@@ -252,7 +253,7 @@
         <script src="<?php echo base_url(); ?>assets/js/vendor.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/jquery.tabledit.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
-        <script src="<?php echo base_url(); ?>assets/js/duplicateFields.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/bootstrap-dialog.min.js"></script>
 
         <script type="text/javascript">
 
@@ -302,6 +303,33 @@
                     console.log($(this).val());
                 }
             });
+
+            $('#remove-employee').click(function(event) {
+                event.preventDefault();
+                console.log('clicked');
+                deactivateEmployee();
+            });
+
+            function deactivateEmployee() {
+                BootstrapDialog.confirm({
+                    title: 'WARNING',
+                    message: 'Warning! Drop your banana?',
+                    type: BootstrapDialog.TYPE_DANGER, // <-- Default value is BootstrapDialog.TYPE_PRIMARY
+                    closable: true, // <-- Default value is false
+                    draggable: true, // <-- Default value is false
+                    btnCancelLabel: 'No', // <-- Default value is 'Cancel',
+                    btnOKLabel: 'Yes', // <-- Default value is 'OK',
+                    btnOKClass: 'btn-danger', // <-- If you didn't specify it, dialog type will be used,
+                    callback: function(result) {
+                        // result will be true if button was click, while it will be false if users close the dialog directly.
+                        if(result) {
+                            alert('Yup.');
+                        }else {
+                            alert('Nope.');
+                        }
+                    }
+                });
+            }
 
         </script>
     </body>

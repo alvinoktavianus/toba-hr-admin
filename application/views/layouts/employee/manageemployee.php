@@ -53,7 +53,7 @@
                                     <?php endif; ?>
                                     <br>
                                     <?php if ( $employee->IsEmployee == 'Y' ): ?>
-                                        <a href="<?php echo base_url(); ?>manageemployee/remove?id=<?php echo $employee->EmployeeID; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you?')">Remove</a>
+                                        <a href="<?php echo base_url(); ?>manageemployee/remove?id=<?php echo $employee->EmployeeID; ?>" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">Remove</a>
                                     <?php endif; ?>
                                 </td>
                             </tr>
@@ -68,3 +68,22 @@
         </div>
     </section>
 </article>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #FF4444;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Danger!</h4>
+      </div>
+      <div class="modal-body">
+        Remove employee?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
